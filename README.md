@@ -48,7 +48,7 @@ Algorithm
 
 
 
-PROCEDURE
+PROCEDURE:
 
 
 •	Refer Algorithms and write code for the experiment.
@@ -64,26 +64,56 @@ MODEL GRAPH:
 <img width="512" height="365" alt="image" src="https://github.com/user-attachments/assets/acd787bd-5281-4f1b-802f-1aa39fac9189" />
 
 
-Program
+Program:
+// Parameters
+Am = 11.1;        // Message amplitude
+Fm = 500;         // Message frequency (Hz)
+B  = 6.3;         // Modulation index
+Ac = 22.2;          // Carrier amplitude
+Fc = 5000;        // Carrier frequency (Hz)
+Fs = 99000;       // Sampling frequency
+T  = 0:1/Fs:2/Fm; // Time vector (two cycles of message)
+
+// Message signal
+em = Am * cos(2*%pi*Fm*T);
+subplot(3,1,1);
+plot(T, em);
+xtitle("Message Signal");
+xgrid();
+// Carrier signal
+ec = Ac * cos(2*%pi*Fc*T);
+subplot(3,1,2);
+plot(T, ec);
+xtitle("Carrier Signal");
+xgrid();
+// FM signal
+efm = Ac * cos( (2*%pi*Fc*T) + (B * sin(2*%pi*Fm*T)) );
+subplot(3,1,3);
+plot(T, efm);
+xtitle("FM Signal");
+xgrid();
 
 
-Output Waveform
+Output Waveform:
 
 
 
-Tabulation
+<img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/a6e0bf07-8010-44e3-adc4-ced8896257eb" />
+
+Tabulation:
+
+![WhatsApp Image 2025-11-11 at 11 16 23_eb3fd0ee](https://github.com/user-attachments/assets/47c0c29c-4f5c-4c32-b1db-3762fa8f877c)
 
 
 
-Calculation
 
+Calculation:
 
+Frequency Deviation Practical = 1045
 
-Frequency Deviation Practical = 
+Modulation Index Practical	= 3.7
 
-Modulation Index Practical	= 
-
-Modulation Index Theoretical	=
+Modulation Index Theoretical	=3.6
 
 
 
